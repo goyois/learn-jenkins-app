@@ -8,7 +8,6 @@ pipeline {
 
     stages {
         stage('Build') {
-
             steps {
                 sh '''
                     ls -la
@@ -43,10 +42,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh ```
+                sh '''
                     npm install netlify-cli@20.1.1
                     node_modules/.bin/netlify --version
-                ```
+                '''
             }
         }
 
