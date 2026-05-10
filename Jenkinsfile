@@ -63,7 +63,7 @@ pipeline {
             steps{
 
                 timeout(time: 1, unit: 'MINUTES'){
-                    input '배포를 진행할까요?', ok: '네 배포합니다'
+                    input message: '배포를 진행할까요?', ok: '네 배포합니다'
                 }
             }
         }
