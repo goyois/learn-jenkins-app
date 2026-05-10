@@ -49,7 +49,7 @@ pipeline {
                 sh '''
                     npm install netlify-cli@20.1.1
                     node_modules/.bin/netlify --version
-                    echo "프로젝트 베포중.. 사이트아이디 : $NETLIFY_NETLIFY_SITE_ID"
+                    echo "프로젝트 베포중.. 사이트아이디 : $NETLIFY_SITE_ID"
                 '''
             }
         }
