@@ -6,6 +6,7 @@ pipeline {
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
 
+    stages {
         stage('Build') {
             agent {
                 docker { image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
@@ -24,7 +25,6 @@ pipeline {
             }
         }
 
-        stages {
             stage('AWS') {
                 agent {
                     docker {
