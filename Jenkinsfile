@@ -6,6 +6,11 @@ pipeline {
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
 
+    environment {
+        AWS_S3_BUCKET = 'portfolio-489023881839-ap-northeast-2-an'
+    }
+
+
     stages {
         stage('AWS') {
             agent {
@@ -15,12 +20,15 @@ pipeline {
                 }
             }
 
+
+
+
             steps {
                     withCredentials([usernamePassword(credentialsId: 'my-aws', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
                         aws --version
                         echo "Hello S3!" > index.html
-                        aws s3 cp index.html s3://portfolio-489023881839-ap-northeast-2-an/test2.txt
+                        aws s3 cp index.html s3://AWS_S3_BUCKET/test2.txt
                     '''
                 }
             }
