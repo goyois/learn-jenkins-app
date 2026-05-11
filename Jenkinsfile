@@ -102,7 +102,7 @@ pipeline {
                 CI_ENVIRONMENT_URL = 'https://magenta-sunburst-cda1db.netlify.app'
             }
             steps {
-                npx playwright test --reporter=html
+                sh 'npx playwright test --reporter=html'
             }
         }
     }
